@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/ressources">
+        <file>Assets/hippolyte.JPG</file>
+        <file>Assets/nicholas.JPG</file>
+        <file>Assets/nicolas.JPG</file>
+        <file>logo-visual-domotique.PNG</file>
+    </qresource>
+</RCC>
