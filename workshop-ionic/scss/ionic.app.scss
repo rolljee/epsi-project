@@ -1,0 +1,165 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+}
+
+ion-content {
+  background: #F2F1EF; /* fallback for old browsers */
+}
+
+.bar.bar-stable {
+  background: #41295a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #41295a , #2F0743);
+  background: linear-gradient(to left, #41295a , #2F0743);
+
+  .title, .ion-navicon {
+    color: #fff;
+  }
+}
+
+.card {
+  margin: 8px 10px;
+}
+
+.pull-right {
+  float: right;
+}
+
+.add-category {
+  .list {
+    background: #fff;
+  }
+}
+
+.item-divider {
+  padding-top: 20px;
+  padding-bottom: 2x;
+  margin-left: 12px;
+  margin-bottom: 2px;
+  margin-right: 10px;
+  background-color: #fff !important;
+  color: #222;
+  text-transform: uppercase;
+  font-size: 18px;
+  border-bottom: 1px solid #222;
+}
+
+.item-subdivider {
+  border-bottom: 1px solid #aaa;
+}
+
+.item-medical-infos {
+  padding: 12px;
+  padding-left: 22px;
+  border-color: #fff !important;
+}
+
+.item-update {
+  border-top: none;
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 2px;
+}
+
+.item-avatar > img:first-child {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.profile-header {
+  margin-top: 30px;
+  margin-bottom: 70px;
+}
+
+.profile-name {
+  position: absolute;
+  top: 24px;
+  right: 30px;
+}
+
+.ion-minus-circled {
+  color: red;
+}
+
+.login-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: url(../img/bg.png) no-repeat center center;
+  background-size: cover;
+}
+
+.login-logo {
+  text-align: center;
+
+  img {
+    width: 80px;
+    height: auto;
+  }
+}
+
+.login-form {
+  margin-top: 40%;
+  padding: 0 30px;
+
+  label {
+    border-radius: 2px;
+    margin-bottom: 3px;
+  }
+
+  button {
+    border-radius: 2px;
+  }
+}
+
+ion-side-menu {
+  ion-content {
+    color: #fff;
+    background: #41295a; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #41295a, #2F0743);
+    background: linear-gradient(to left, #41295a, #2F0743);
+  }
+
+  .list {
+    padding: 30px 10px;
+  }
+
+  .item-icon-left {
+    border-color: transparent;
+    background-color: transparent;
+  }
+}
+
+.edit-infos {
+}
+
+.sign {
+  padding: 5px 0;
+  text-align: center;
+  font-size: 10px;
+}

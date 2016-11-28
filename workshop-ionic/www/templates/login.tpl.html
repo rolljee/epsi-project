@@ -1,0 +1,19 @@
+<ion-view>
+  <ion-content>
+    <div class="login-container">
+      <div class="login-form">
+      <div class="login-logo"><p><img src="img/logo.png"></p></div>
+        <form ng-submit="vm.logIn(loginData)">
+          <label class="item item-input">
+            <input type="email" placeholder="Email" ng-model="loginData.email">
+          </label>
+          <label class="item item-input">
+            <input type="password" placeholder="Password" ng-model="loginData.password">
+          </label>
+          <button class="button button-block button-positive" type="submit">Log in</button>
+        </form>
+        <button ng-click="vm.openModal()" class="button button-clear button-positive pull-right"> Don't have account ? Sign in ! </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

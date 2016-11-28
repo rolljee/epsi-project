@@ -1,0 +1,35 @@
+<template name="background">
+    <div id="divbackground" style="display : none;">
+        <div class="col-xs-12 headerTable">
+            <div class="text-center"> <b>{{_ "medications"}}</b> </div>
+        </div>
+        <table class="table table-striped table-bordered tableCarousel">
+            <tr style="width : 100%;">
+                <th>{{_ "disease_name"}}</th>
+                <th>{{_ "name"}}</th>
+                <th>{{_ "posologies"}}</th>
+                <th>{{_ "weight"}}</th>
+                <th>{{_ "start_date"}}</th>
+                <th>{{_ "end_date"}}</th>
+            </tr>
+            {{#each this.background}}
+            <tr style="width : 100%;">
+                <td>{{this.name}}</td>
+                <td colspan="5">
+                    {{#each this.medications}}
+                    <table style="width : 100%;">
+                        <tr>
+                            <td>{{this.name}}</td>
+                            <td>{{this.posology}}</td>
+                            <td>{{this.weight}}</td>
+                            <td>{{this.startDate}}</td>
+                            <td>{{this.endDate}}</td>
+                        </tr>
+                    </table>
+                    {{/each}}
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+</template>

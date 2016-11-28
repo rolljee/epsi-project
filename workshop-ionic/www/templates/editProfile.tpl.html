@@ -1,0 +1,96 @@
+<ion-view view-title="Edit profil">
+  <ion-content>
+    <div class="card">
+      <div class="item-avatar profile-header">
+        <img src="{{vm.user.photo}}">
+        <div class="profile-name">
+          <h2>{{vm.user.firstname}} {{vm.user.lastname}}</h2>
+          <a href="#/app/profile" class="button button-clear button-positive pull-right"> View profile </a>
+        </div>
+      </div>
+    </div>
+    <div class="card edit-infos">
+      <div class="item-divider"> <h4>civil_state</h4> </div>
+      <label class="item item-input">
+        <span class="input-label">Firstname</span>
+        <input ng-model="vm.user.firstname" class="item item-medical-infos" href="#">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Lastname</span>
+        <input ng-model="vm.user.lastname" class="item item-medical-infos" href="#">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Sex</span>
+        <input ng-model="vm.user.sexe" class="item item-medical-infos" href="#">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Born</span>
+        <input ng-model="vm.user.birth" class="item item-medical-infos" href="#">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Height</span>
+        <input ng-model="vm.user.height" class="item item-medical-infos" href="#">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Weight</span>
+        <input ng-model="vm.user.weight" class="item item-medical-infos" href="#">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Bloodtype</span>
+        <input ng-model="vm.user.bloodtype" class="item item-medical-infos" href="#">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Security number</span>
+        <input ng-model="vm.user.secu" class="item item-medical-infos" href="#">
+      </label>
+    </div>
+
+    <div class="card">
+      <div class="item-divider"> <h4>ICE</h4> </div>
+      <div ng-repeat="ice in vm.user.ICE track by $index" class="item-subdivider">
+        <p class="item item-medical-infos item-icon-right"> {{ice.firstname}}, {{ice.relationship}}
+          <i ng-click="vm.removeIce(ice)" class="icon ion-minus-circled"></i>
+        </p>
+      </div>
+      <a ng-click="vm.openModal('ice')" class="button button-clear button-positive item-medical-infos"> Add ICE </a>
+    </div>
+
+    <div class="card">
+      <div class="item-divider"> <h4>pathologies</h4> </div>
+      <p ng-repeat="patho in vm.user.pathology track by $index" class="item item-medical-infos item-icon-right" > {{patho.name}}
+        <i ng-click="vm.removePatho(patho)" class="icon ion-minus-circled"></i>
+      </p>
+      <a ng-click="vm.openModal('patho')" class="button button-clear button-positive item-medical-infos"> Add pathology </a>
+    </div>
+
+    <div class="card">
+      <div class="item-divider"> <h4>allergies</h4> </div>
+      <p ng-repeat="aller in vm.user.allergies track by $index" class="item item-medical-infos item-icon-right"> {{aller.name}}
+        <i ng-click="vm.removeAller(aller)" class="icon ion-minus-circled"></i>
+      </p>
+      <a ng-click="vm.openModal('aller')" class="button button-clear button-positive item-medical-infos"> Add allergy </a>
+    </div>
+
+    <div class="card">
+      <div class="item-divider"> <h4>background</h4> </div>
+      <p ng-repeat="back in vm.user.background track by $index" class="item item-medical-infos item-icon-right"> {{back.name}}
+        <i ng-click="vm.removeBack(back)" class="icon ion-minus-circled"></i>
+      </p>
+      <a ng-click="vm.openModal('back')" class="button button-clear button-positive item-medical-infos"> Add background </a>
+    </div>
+
+    <div class="card">
+      <div class="item-divider"> <h4>practitioner</h4> </div>
+      <p class="item item-medical-infos item-icon-right"> {{vm.user.practitioner.firstname}}, {{vm.user.practitioner.lastname}}
+        <i  class="icon ion-ios-telephone-outline"></i>
+      </p>
+      <a ng-click="vm.openModal('pract')" class="button button-clear button-positive item-medical-infos"> Edit practitioner </a>
+    </div>
+
+    <div class="card">
+      <div class="item-divider"> <h4>medical_note</h4> </div>
+      <textarea class="item item-medical-infos"> {{vm.user.medicalNote.text}} </textarea>
+    </div>
+    <button ng-click="vm.saveProfile(vm.user)" class="button button-full button-positive"> Save profile </button>
+  </ion-content>
+</ion-view>

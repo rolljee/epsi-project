@@ -1,0 +1,62 @@
+{ 
+// Medical words
+"security_number": "Num sécurité sociale",
+"blood_type": "Groupe sanguin",
+"weight": "Poids",
+"height": "Taille",
+"ICE": "ECU",
+"pathologies": "Pathologies",
+"posologie": "Posologie",
+"medications": "Médicaments",
+"background": "Antécédents",
+"practitioner": "Médecin traitant",
+"medical_note": "Note médicale",
+"allergies": "Allergies",
+"organ": "Don d'organe",
+"severity_index": "Indice de gravité",
+
+// Common words
+"name": "Nom",
+"start_date": "Date de début",
+"end_date": "Date de fin",
+"gravity": "Gravité",
+"text": "Texte",
+"photo": "Photo",
+"yes": "oui",
+"no": "non",
+"product_name" : "Nom du produit",
+"disease_name" : "Nom de la maladie",
+"heure" : "Heure de l'incident",
+"footer" : "Application Safe et site web développés par l'équipe SAFER",
+"fiche_id" : "Fiche Id",
+"token" : "Token Id",
+"searchstr": "Menu de recherche",
+
+// Identity words
+"first_name": "Prénom",
+"last_name": "Nom",
+"birth": "Né le",
+"sexe": "Genre",
+"phone": "Tél",
+"relationship": "Relation",
+"email": "Email",
+"civil_state": "État civil",
+"address" : "Adresse",
+"longitude" : "Long",
+"latitude" : "Lat",
+
+
+//Action words
+"login": "Login",
+"signin": "Connexion",
+"signout": "Sign out",
+"password": "Mot de passe",
+"add": "Ajouter",
+"delete": "Supprimer",
+"edit": "Éditer",
+"modify": "Modifier",
+"validate": "Valider",
+"cancel": "Annuler",
+"create": "Créer",
+"not_found": "Non trouvé"
+}

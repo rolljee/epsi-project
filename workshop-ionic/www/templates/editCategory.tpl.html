@@ -1,0 +1,117 @@
+<ion-modal-view>
+  <ion-content>
+    <div class="add-category">
+      <div class="list" ng-if="category === 'ice'">
+        <div class="item-divider"> <h4>Add Ice <span ng-click="vm.closeModal()" class="pull-right">Close</span></h4> </div>
+        <label class="item item-input item-update">
+          <span class="input-label">Firstname</span>
+          <input ng-model="vm.ice.firstname" placeholder="Firstname" class="item item-medical-infos">
+        </label>
+        <label class="item item-input item-update">
+          <span class="input-label">Relationship</span>
+          <input ng-model="vm.ice.relationship" placeholder="Relationship" class="item item-medical-infos">
+        </label>
+        <label class="item item-input item-update">
+          <span class="input-label">Phone</span>
+          <input ng-model="vm.ice.phone" placeholder="Phone" class="item item-medical-infos">
+        </label>
+        <button ng-click="vm.addIce(vm.ice)" class="button button-full button-positive"> Save </button>
+      </div>
+
+      <div class="list" ng-if="category === 'patho'">
+        <div class="item-divider"> <h4>Add pathology <span ng-click="vm.closeModal()" class="pull-right">Close</span></h4> </div>
+        <label class="item item-input item-update">
+        <span class="input-label">Name</span>
+        <input ng-model="vm.patho.name" placeholder="Name" class="item item-medical-infos">
+        </label>
+        <div ng-repeat="medication in vm.patho.medications track by $index">
+          <div class="item-divider"> <h5>Medications</h5> </div>
+          <label class="item item-input item-update">
+            <span class="input-label">Name</span>
+            <input placeholder="here" class="item item-medical-infos">
+          </label>
+          <label class="item item-input item-update">
+            <span class="input-label">Start</span>
+            <input placeholder="date" class="item item-medical-infos">
+          </label>
+          <label class="item item-input item-update">
+            <span class="input-label">End</span>
+            <input placeholder="date" class="item item-medical-infos">
+          </label>
+          <label class="item item-input item-update">
+            <span class="input-label">Posology</span>
+            <input placeholder="Level" class="item item-medical-infos">
+          </label>
+          <label class="item item-input item-update">
+            <span class="input-label">Weight</span>
+            <input placeholder="Weight" class="item item-medical-infos">
+          </label>
+        </div>
+        <button ng-click="vm.addPathoMedication()" class="button button-full button-positive"> Add medication </button>
+        <button ng-click="vm.addPatho(vm.patho)" class="button button-full button-positive"> Save </button>
+      </div>
+
+      <div class="list" ng-if="category === 'aller'">
+        <div class="item-divider"> <h4>Add allergy <span ng-click="vm.closeModal()" class="pull-right">Close</span></h4> </div>
+        <label class="item item-input item-update">
+          <span class="input-label">Firstname</span>
+          <input ng-model="vm.aller.name" placeholder="Firstname" class="item item-medical-infos">
+        </label>
+        <label class="item item-input item-update">
+          <span class="input-label">Gravity</span>
+          <input ng-model="vm.aller.gravity" placeholder="Phone" class="item item-medical-infos">
+        </label>
+        <button ng-click="vm.addAller(vm.aller)" class="button button-full button-positive"> Save </button>
+      </div>
+
+      <div class="list" ng-if="category === 'back'">
+        <div class="item-divider"> <h4>Add background <span ng-click="vm.closeModal()" class="pull-right">Close</span></h4> </div>
+        <span class="input-label">Name</span>
+        <input ng-model="vm.back.name" placeholder="Name" class="item item-medical-infos">
+        </label>
+        <div ng-repeat="medication in vm.back.medications track by $index">
+          <div class="item-divider"> <h5>Medications</h5> </div>
+          <label class="item item-input item-update">
+            <span class="input-label">Name</span>
+            <input placeholder="here" class="item item-medical-infos">
+          </label>
+          <label class="item item-input item-update">
+            <span class="input-label">Start</span>
+            <input placeholder="date" class="item item-medical-infos">
+          </label>
+          <label class="item item-input item-update">
+            <span class="input-label">End</span>
+            <input placeholder="date" class="item item-medical-infos">
+          </label>
+          <label class="item item-input item-update">
+            <span class="input-label">Posology</span>
+            <input placeholder="Level" class="item item-medical-infos">
+          </label>
+          <label class="item item-input item-update">
+            <span class="input-label">Weight</span>
+            <input placeholder="Weight" class="item item-medical-infos">
+          </label>
+        </div>
+        <button ng-click="vm.addBackMedication()" class="button button-full button-positive"> Add medication </button>
+        <button ng-click="vm.addBack(vm.back)" class="button button-full button-positive"> Save </button>
+      </div>
+
+      <div class="list" ng-if="category === 'pract'">
+        <div class="item-divider"> <h4>Edit practitioner <span ng-click="vm.closeModal()" class="pull-right">Close</span></h4> </div>
+        <label class="item item-input item-update">
+          <span class="input-label">Firstname</span>
+          <input ng-model="vm.user.practitioner.firstname" placeholder="Firstname" class="item item-medical-infos">
+        </label>
+        <label class="item item-input item-update">
+          <span class="input-label">Firstname</span>
+          <input ng-model="vm.user.practitioner.lastname" placeholder="Lastname" class="item item-medical-infos">
+        </label>
+        <label class="item item-input item-update">
+          <span class="input-label">Phone</span>
+          <input ng-model="vm.user.practitioner.phone" placeholder="Phone" class="item item-medical-infos">
+        </label>
+        <button ng-click="vm.addIce(vm.pract)" class="button button-full button-positive"> Save </button>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

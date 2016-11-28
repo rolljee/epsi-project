@@ -1,0 +1,26 @@
+<ion-modal-view>
+  <ion-content>
+    <div class="login-container">
+      <div class="login-form">
+        <form ng-submit="vm.signIn()">
+          <div class="login-logo"><p><img src="img/logo.png"></p></div>
+          <label class="item item-input">
+            <input type="email" placeholder="Email" ng-model="vm.newUser.email">
+          </label>
+          <label class="item item-input">
+            <input type="email" placeholder="Confirm email" ng-model="vm.newUser.email">
+          </label>
+          <label class="item item-input">
+            <input type="password" placeholder="Password" ng-model="vm.newUser.password">
+          </label>
+          <label class="item item-input">
+            <input type="password" placeholder="Confirm password" ng-model="vm.newUser.password">
+          </label>
+          <button class="button button-block button-positive" type="submit">Sign in</button>
+        </form>
+        <button ng-click="vm.closeModal()" class="button button-clear button-positive pull-right"> Already have account ? Log in ! </button>
+      </div>
+    </div>
+      {{vm.newUser | json}}
+  </ion-content>
+</ion-modal-view>

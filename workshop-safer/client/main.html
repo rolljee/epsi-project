@@ -1,0 +1,44 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="flag-webicons.css">
+  <link rel="icon" type="img/png" href="/img/Safe_Logo.PNG" />
+  <title>Safe App</title>
+</head>
+
+<template name="main">
+  {{#if is404}} {{> is404}} {{else}} {{> asideMenu}}
+  <div class="container mainPage">
+    {{> header}}
+    <div class="container-fluid">
+      <riv class="row">
+        <div class="col-xs-12 col-lg-12">
+          <form id="find-fiche">
+            <div class="searchInfo">
+              <br>
+              <h3 class="text-center">{{_ "searchstr"}} </h3>
+              <br> {{#if notfound}} {{> notfound}} {{/if}}
+              <div class="input-group input-group-lg">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
+                <input type="text" id="fiche" class="form-control" placeholder='{{_ "fiche_id"}}' aria-describedby="sizing-addon1">
+              </div>
+              <div class="input-group input-group-lg">
+                <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
+                <input type="text" id="token" class="form-control" placeholder='{{_ "token"}}' aria-describedby="sizing-addon1">
+              </div>
+
+              <br>
+              <button type="submit" class="btn btn-block btn-lg btn-danger">{{_ "validate"}}</button>
+            </div>
+          </form>
+        </div>
+      </riv>
+
+    </div>
+    {{> footer}}
+  </div>
+  {{/if}}
+</template>
+
+<template name="notfound">
+  <p class="alert text-center" style="color:#e74c3c"> <i class="fa fa-ban fa-5" aria-hidden="true"></i> {{_ "not_found"}}</p>
+</template>

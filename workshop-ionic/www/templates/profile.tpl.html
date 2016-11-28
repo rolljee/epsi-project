@@ -1,0 +1,71 @@
+<ion-view view-title="Mon profil">
+  <ion-content>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="vm._init()">
+    </ion-refresher>
+    <div class="card">
+      <div class="item-avatar profile-header">
+        <img ng-src="{{vm.user.photo}}">
+        <div class="profile-name">
+          <h2>{{vm.user.firstname}} {{vm.user.lastname}}</h2>
+          <img width="80px" ng-src="{{vm.user.qrCode}}">
+          <a href="#/app/edit-profile" class="button button-clear button-positive pull-right"> Edit profile </a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="button-bar bar-assertive">
+        <a ng-href="tel:{{vm.user.practitioner.phone}}" class="button">Urgency call</a>
+        <a ng-click="vm.sendSms()" class="button">Urgency sms</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="item-divider"> <h4>civil_state</h4> </div>
+      <p class="item item-medical-infos"> Firstname: {{vm.user.firstname}}</p>
+      <p class="item item-medical-infos"> Lastname: {{vm.user.lastname}}</p>
+      <p class="item item-medical-infos"> Sex: {{vm.user.sexe}} </p>
+      <p class="item item-medical-infos"> Born: {{vm.user.birth}} </p>
+      <p class="item item-medical-infos"> Height: {{vm.user.height}} cm </p>
+      <p class="item item-medical-infos"> Weight: {{vm.user.weight}} kg </p>
+      <p class="item item-medical-infos"> Blood: {{vm.user.bloodtype}} </p>
+      <p class="item item-medical-infos"> Security number: {{vm.user.secu}} </p>
+    </div>
+    <div class="card">
+      <div class="item-divider"> <h4>ICE</h4> </div>
+      <div ng-repeat="ice in vm.user.ICE" class="item-subdivider">
+        <a ng-href="tel:{{ice.phone}}" class="item item-medical-infos item-icon-right"> {{ice.firstname}}, {{ice.relationship}}
+          <i class="icon ion-ios-telephone-outline"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item-divider"> <h4>pathologies</h4> </div>
+      <a ng-repeat="patho in vm.user.pathology" ng-click="vm.openModal(patho)" class="item item-medical-infos"> {{patho.name}}</a>
+    </div>
+
+    <div class="card">
+      <div class="item-divider"> <h4>allergies</h4> </div>
+      <p ng-repeat="aller in vm.user.allergies" class="item item-medical-infos"> {{aller.name}}, gravity: {{aller.gravity}} </p>
+    </div>
+
+    <div class="card">
+      <div class="item-divider"> <h4>background</h4> </div>
+      <a ng-repeat="back in vm.user.background" class="item item-medical-infos"> {{back.name}} </a>
+    </div>
+
+    <div class="card">
+      <div class="item-divider"> <h4>practitioner</h4> </div>
+      <a ng-href="tel:{{vm.user.practitioner.phone}}" class="item item-medical-infos item-icon-right"> {{vm.user.practitioner.firstname}}, {{vm.user.practitioner.lastname}}
+        <i class="icon ion-ios-telephone-outline"></i>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="item-divider"> <h4>medical_note</h4> </div>
+      <p class="item item-medical-infos"> {{vm.user.medicalNote.text}} </p>
+    </div>
+    <p class="sign">Made with love by Safe, in Montpellier</p>
+  </ion-content>
+</ion-view>
