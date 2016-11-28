@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/Assets">
+        <file>Assets/ship.png</file>
+        <file>Assets/point-minestorm.png</file>
+    </qresource>
+</RCC>
