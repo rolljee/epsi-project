@@ -1,0 +1,40 @@
+/* CSS declarations go here */
+.addAnswer{
+    cursor: pointer;
+}
+html, body {
+    margin: 0;
+    height: 100%;
+}
+.container{
+  margin: auto;
+  height: 100%;
+}
+
+.blue{
+  background-color: #0c60ee;
+}
+
+.login{
+  position: relative;
+  margin-bottom: 77px;
+  color: #fff;
+}
+.login-screen {
+    min-height: 20%;
+    padding: 20% 0 0 0;
+}
+.login-icon {
+    position: absolute;
+    left: 45%;
+    width: 50%;
+}
+.login-form {
+    position: relative;
+    padding: 24px 23px 20px;
+    background-color: #fff;
+    border-radius: 6px;
+}
+.pointer{
+    cursor : pointer
+}

@@ -1,0 +1,116 @@
+<template name="meeting">
+    {{#if isConnectedUser}} {{>header}} {{#ionContent}}{{#ionList class="list card"}}
+    <div style="margin-top:25px">
+        <div class="row">
+            <div class="col">
+                <div class="button-bar">
+                    <a class="button button-positive" id="mymeetings">My meetings</a>
+                    <a class="button" id="invitation">Invitation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{#each item}}
+    <div class="item item-avatar" style="margin-top:25px;">
+        <img src="/images/avatar-nico.jpg">
+        <div class="row">
+            <div class="col">
+                <h2>{{user}}</h2>
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col">
+                <a class="pointer delete">Remove</a>
+            </div>
+            <div class="col">
+                <a class="pointer sendcsv">Send csv</a>
+            </div>
+        </div>
+        <p>{{debut}}</p>
+    </div>
+    <div class="item item-body">
+        <div class="row">
+            <div class="col">
+                <h2>{{libelle}} - {{fin}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>{{description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul class="list">
+                    {{#each this.propositionRdvCollection}}
+                    <li class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="radio" id="{{idProposition}}"  name="uniqReponseMeeting " class="reponse">
+                        </label> {{heureDebut}} - {{heureFin}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{/each}} {{/ionList}} {{/ionContent}} {{else}} {{> HometemplateNotConnected}} {{/if}}
+</template>
+
+<template name="newMeeting">
+    {{#if isConnectedUser}} {{>header}} {{#ionContent}} {{#ionList}}
+    <div class="list targetList" style="margin-top:50px;">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Title</span>
+            <input type="text" placeholder="Title" id="title" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">libelle</span>
+            <input type="text" placeholder="libelle" id="libelle" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">lieu</span>
+            <input type="text" placeholder="lieu" id="lieu" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Description</span>
+            <input type="text" placeholder="Description" id="description" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Ending Date</span>
+            <input type="datetime-local" id="enddate" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <i class="icon ion-plus-circled showContact"></i>
+            {{> contactListForMeeting}}
+            <span class="input-label">Add Guest for the Meeting</span>
+            <input type="text" placeholder="Email of contact" id="valueContact">
+            <button class="button button-block button-positive" id="addContact">Add Guest</button>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <i class="icon ion-plus-circled addAnswer"></i>
+            <span class="input-label">Possible date</span>
+            <input type="text" class="answer" placeholder="hh:mm (beginning) - hh:mm (end)" required>
+        </label>
+    </div>
+    <button class="button button-block button-positive" id="submitForm">Submit</button> {{/ionList}} {{/ionContent}} {{else}}
+    {{> HometemplateNotConnected}} {{/if}}
+</template>
+
+<template name="contactListForMeeting">
+    <div style="display:none" class="contactDiv">
+        <ul class="list">
+            {{#each contact}}
+            <li class="item item-toggle">
+                <span class="addContactToSurvey">{{this.name}}</span>
+                <label class="toggle toggle-positive">
+                    <input type="checkbox" id="check-{{this.index}}">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</template>

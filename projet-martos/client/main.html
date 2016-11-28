@@ -1,0 +1,115 @@
+<head>
+    <title>Survey-Meeting</title>
+    <link rel="icon" href="/images/conference.png" />
+</head>
+
+<body>
+    {{#ionBody}} {{#ionNavView}} {{/ionNavView}} {{/ionBody}}
+</body>
+
+<template name="home">
+    {{#if isConnectedUser}} {{> header}}
+    <div style="margin-top:50px;" class="container">
+        {{> Hometemplate}}
+    </div>
+    {{else}}
+    <div class="container blue">
+        {{> HometemplateNotConnected}}
+    </div>
+    {{/if}}
+</template>
+
+<template name="Hometemplate">
+    {{#ionContent}} {{#ionList class="list card"}}
+    <div style="margin-top:25px">
+        <div class="row">
+            <div class="col">
+                <div class="button-bar">
+                    <a class="button button-positive" id="finished">Finished</a>
+                    <a class="button" id="in_progress">In progress</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{#each item}}
+    <div class="item item-avatar" style="margin-top:25px">
+        <img src="/images/avatar-nico.jpg">
+        <h2>{{mailUtilisateur}}</h2>
+    </div>
+    {{#if isMeeting}}
+    <!-- Si c'est un meeting -->
+    <div class="item item-body">
+        <div class="row">
+            <div class="col">
+                <h2>
+                    <a class="item item-icon-left" href="#">
+                        <i class="icon ion-calendar meetingicon"></i> {{libelle}} - {{fin}}
+                    </a>
+                </h2>
+            </div>
+        </div>
+        <div class="row" style="display:none" id="inviteMeeting-{{idRdv}}">
+            <div class="col">
+                {{#each inviteRdvCollection}}
+                <p>{{inviteRdvPK.mailUtilisateur}}</p>
+                {{/each}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>{{description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul class="list">
+                    {{#each this.propositionRdvCollection}}
+                    <li class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" id="meeting-{{idProposition}}" {{setCheckedMeeting}} disabled>
+                        </label> {{heureDebut}} - {{heureFin}} - ({{nbrReponse}})
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="item item-body">
+        <div class="row">
+            <div class="col">
+                <h2>
+                    <a class="item item-icon-left" href="#">
+                        <i class="icon ion-compose sondageicon"></i> {{libelle}} - {{fin}}
+                    </a>
+                </h2>
+            </div>
+        </div>
+        <div class="row" style="display:none" id="inviteSondage-{{idSondage}}">
+            <div class="col">
+                {{#each inviteSondageCollection}}
+                <p>{{inviteSondagePK.mailUtilisateur}}</p>
+                {{/each}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>{{description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul class="list">
+                    {{#each this.propositionSondageCollection}}
+                    <li class="item item-checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" id="survey-{{idProposition}}" {{setCheckedSurvey}} disabled>
+                        </label> {{libelle}} - ({{nbrReponse}})
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{/if}} {{/each}} {{/ionList}} {{/ionContent}}
+</template>

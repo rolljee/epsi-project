@@ -1,0 +1,119 @@
+<template name="system">
+    {{#if isConnectedUser}} {{>header}} {{#ionContent}} {{#ionList class="list"}}
+    <div style="margin-top:50px">
+        <a class="item item-icon-left item-icon-right contactList" href="#">
+            <i class="icon ion-person"></i> Manage contact list
+            <span class="badge badge-positive">{{numberOfContact}}</span>
+        </a>
+        {{> contactList}}
+        <a class="item item-icon-left item-icon-right passwordDiv" href="#">
+            <i class="icon ion-unlocked"></i> Change password
+            <span class="badge badge-positive">10 day's ago</span>
+        </a>
+        {{> changePassword}}
+        <a class="item item-icon-left user-email" href="#">
+            <i class="icon ion-person"></i> Change Email
+            <span class="badge badge-positive">{{user}}</span>
+        </a>
+        {{> changeEmail}}
+        <a class="item item-icon-left notificationDiv" href="#">
+            <i class="icon ion-ios-bell"></i> Notifications
+            <span class="badge badge-positive">0</span>
+        </a>
+        {{> notifications}}
+        <a class="item item-icon-left" href="#">
+            <i class="icon ion-ios-bell"></i> Disconnect
+            <span class="badge badge-positive disconnect">click me</span>
+        </a>
+        <a class="item item-icon-left aboutusDiv" href="#">
+            <i class="icon ion-information-circled"></i> About us
+        </a>
+        {{> aboutUs}}
+    </div>
+    {{/ionList}} {{/ionContent}} {{else}} {{> HometemplateNotConnected}} {{/if}}
+</template>
+
+
+<template name="contactList">
+    <div class="listeContact" style="display:none">
+        {{#each contact}}
+        <a class="item item-icon-left aboutusDiv" href="#">
+            <i class="icon ion-information-circled"></i> {{this}}
+            <span class="badge removeContact">remove</span>
+        </a>
+        {{/each}}
+        <label class="item item-input item-stacked-label">
+            <input type="text" placeholder="Email of the contact" id="contactToAdd">
+        </label>
+        <button class="button button-block button-positive" id="addContact">
+            Add contact
+        </button>
+    </div>
+</template>
+<template name="changePassword">
+    <div class="password" style="display:none">
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <input type="password" placeholder="Old password" id="oldpassword">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <input type="password" placeholder="New password" id="newpassword">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <input type="password" placeholder="Confirm new password" id="confirmnewpassword">
+            </label>
+            <button class="button button-block button-positive" id="changepassword">
+                Modify
+            </button>
+        </div>
+    </div>
+</template>
+
+<template name="changeEmail">
+    <div style="display:none" class="email">
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <input type="text" placeholder="Current Email" id="oldEmail">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <input type="text" placeholder="New Email" id="newEmail">
+            </label>
+        </div>
+        <button class="button button-block button-positive" id="changeEmail">
+            Modify
+        </button>
+    </div>
+</template>
+
+<template name="notifications">
+    <div class="notifications" style="display:none">
+        <ul class="list">
+            <li class="item item-toggle">
+                On new meetings
+                <label class="toggle toggle-positive">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                On new survey
+                <label class="toggle toggle-positive">
+                    <input type="checkbox" {{isChecked}}>
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+    </div>
+</template>
+
+<template name="aboutUs">
+    <!--<div class="aboutus" style="display:none">
+        <p>Survey & Meeting est une application Mobile et Web crée par 6 étudiants </p>
+        <p>Vous pouvez créer des Sondages ainsi que des RDV à partager avec de nombreuses personnes dans votre répertoire</p>
+        <p>Nous avons recherché la simplicité et la rapidité afin de vous proposez une application réactive</p>
+    </div>-->
+</template>

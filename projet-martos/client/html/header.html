@@ -1,0 +1,10 @@
+<template name="header">
+    <div class="bar bar-header bar-positive display">
+        <button class="button button-clear" id="commandButton"><i class="icon {{displaySigle}}"></i></button>
+        <div class="h1 title">{{currentPage}}</div>
+        <button class="button button-clear" id="settings"><i class="icon ion-gear-b"></i></button>
+    </div>
+    {{#ionTabs class="tabs-positive tabs-icon-top"}} {{> ionTab title="Home" path="home" iconOff="ios-home" iconOn="ios-home"}}
+    {{> ionTab title="Surveys" path="survey" iconOff="ios-compose" iconOn="ios-compose"}} {{> ionTab title="Meetings" path="meeting"
+    iconOff="ios-calendar" iconOn="ios-calendar"}} {{/ionTabs}}
+</template>

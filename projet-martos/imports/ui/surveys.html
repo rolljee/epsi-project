@@ -1,0 +1,121 @@
+<template name="survey">
+    {{#if isConnectedUser}} {{>header}} {{#ionContent}} {{#ionList class="list card"}}
+    <div style="margin-top:25px">
+        <div class="row">
+            <div class="col">
+                <div class="button-bar">
+                    <a class="button button-positive" id="mysurveys">My surveys</a>
+                    <a class="button" id="invitation">Invitation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{#each item}}
+    <div class="item item-avatar" style="margin-top:25px;">
+        <img src="/images/avatar-nico.jpg">
+        <div class="row">
+            <div class="col">
+                <h2>{{user}}</h2>
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col">
+                <a class="pointer delete">Remove</a>
+            </div>
+            <div class="col">
+                <a class="pointer sendcsv">Send csv</a>
+            </div>
+        </div>
+        <p>{{date}}</p>
+    </div>
+
+    <div class="item item-body">
+        <div class="row">
+            <div class="col">
+                <h2>{{libelle}} - {{fin}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>{{description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul class="list">
+                    {{#each this.propositionSondageCollection}}
+                    <li class="item item-checkbox">
+                        <label class="checkbox">
+                            <input class="reponse" name="uniqSurveyReponse" type="radio" id="{{idProposition}}">
+                        </label> {{libelle}} - ({{nbrReponse}})
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{/each}} {{/ionList}} {{/ionContent}} {{else}} {{> HometemplateNotConnected}} {{/if}}
+</template>
+
+<template name="newSurvey">
+    {{#if isConnectedUser}} {{>header}} {{#ionContent}} {{#ionList}}
+    <div class="list targetList" style="margin-top:50px; height:100%;">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Title</span>
+            <input type="text" placeholder="Title" id="title" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Libellé</span>
+            <input type="text" placeholder="Libellé" id="libelle" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Description</span>
+            <input type="text" placeholder="description" id="description" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Lieu</span>
+            <input type="text" placeholder="Lieu" id="lieu" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Ending Date</span>
+            <input type="datetime-local" id="enddate" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">reponse unique</span>
+            <input type="number" min="0" step="1" id="reponseUnique" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <i class="icon ion-plus-circled showContact"></i>
+            {{> contactListForSurvey}}
+            <span class="input-label">Add Guest for the Survey</span>
+            <input type="text" placeholder="Email of contact" id="valueContact">
+            <button class="button button-block button-positive" id="addContact">Add contact</button>
+        </label>
+        <label class="item item-input item-stacked-label">
+            <i class="icon ion-plus-circled addAnswer"></i>
+            <span class="input-label">Possible answers</span>
+            <input type="text" placeholder="Answer" class="answer" required>
+        </label>
+    </div>
+    <button class="button button-block button-positive" id="submitForm">Submit</button> {{/ionList}} {{/ionContent}} {{else}}
+    {{> HometemplateNotConnected}} {{/if}}
+</template>
+
+<template name="contactListForSurvey">
+    <div style="display:none" class="contactDiv">
+        <ul class="list">
+            {{#each contact}}
+            <li class="item item-toggle">
+                <span class="addContactToSurvey">{{this.name}}</span>
+                <label class="toggle toggle-positive">
+                    <input type="checkbox" id="check-{{this.index}}">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</template>
