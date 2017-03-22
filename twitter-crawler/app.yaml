@@ -1,0 +1,10 @@
+runtime: nodejs
+env: flex
+threadsafe: true
+automatic_scaling:
+  max_num_instances: 1
+env_variables:
+  DISABLE_WEBSOCKETS: 0
+  NODE_ENV: production
+  ROOT_URL: http://twitter-cloud-crawler.appspot.com
+  MONGO_URL: mongodb://safer:root@ds019796.mlab.com:19796/safer

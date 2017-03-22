@@ -1,0 +1,20 @@
+<template name="userprofile">
+    {{#with tweetAffiliated}}
+    <div class="container">
+        <h1 class="text-center">Informations complémentaires</h1>
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-md-12">
+                <p>Username : {{user.name}}</p>
+                <p>Location : {{user.location}}</p>
+                <p>Time zone : {{user.time_zone}}</p>
+                <p>Creation du compte : {{user.created_at}}</p>
+                <p>Geo enabled : {{user.geo_enabled}}</p>
+                <p>Coordinates : {{coordinates}}</p>
+                <p>Geo : {{geo}}</p>
+                <p>Place : {{place}}</p>
+                <p>Related hashtag : {{relatedHastag}}</p>
+            </div>
+        </div>
+    </div>
+    {{/with}}
+</template>

@@ -1,0 +1,13 @@
+/* CSS declarations go here */
+.users{
+    cursor: pointer;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.pointer{
+    cursor: pointer;
+}

@@ -1,0 +1,81 @@
+<template name="interface">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="table-responsive" style="max-height:{{screenHeight}}px; overflow-y:auto" id="scrollme">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Date </th>
+                            <th>Text </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each tweets}} {{> tweet}} {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <!-- Tabs -->
+            <ol class="breadcrumb pointer">
+                <li class="menu" id="hashtag"><a>Hashtag</a></li>
+                <li class="menu" id="settings"><a>Geoposition</a></li>
+            </ol>
+            <div class="hashtag display-class">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 well">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <p>Nombre de tweet crawlé : {{total}} </p>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <button class="btn btn-lg btn-block btn-inverse" id="reset">Reset</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <p>Stream en cours : {{currentStream}}</p>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <button class="btn btn-lg btn-block btn-inverse" id="stop">Stopper le crawl</button>
+                            </div>
+                        </div>
+                        <form id="start">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="text" class="form-control" id="hashtag-value" placeholder="hashtag">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <button type="submit" class="btn btn-lg btn-block btn-inverse">Start stream</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                {{> tweetinfo}}
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="pagination pagination-inverse">
+                                    <a id="old" class="btn btn-inverse previous">OLDER</a>
+                                    <a id="next" class="btn btn-inverse next">NEWER</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="settings display-class well" style="display:none">
+                {{> geoposition}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="tweet">
+    <tr>
+        <td>{{createdAt}}</td>
+        <td>{{isLink}}</td>
+    </tr>
+</template>

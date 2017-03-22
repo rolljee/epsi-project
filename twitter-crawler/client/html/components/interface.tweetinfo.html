@@ -1,0 +1,8 @@
+<template name="tweetinfo">
+    <h4> Tweets </h4>
+    <ul>
+        {{#each tweets}}
+            <li id="{{_id}}" class="users">{{user.name}} - {{user.location}}</li>
+        {{/each}}
+    </ul>
+</template>
